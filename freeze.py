@@ -1,4 +1,4 @@
-from .ecgmobile import main
+from ecgmobile import main
 
 if __name__ == '__main__':
     main.freezer.freeze()
