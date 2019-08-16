@@ -1,4 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
-{{ page }}
+
+<div class="sections">
+    {% if len(sections) == 0 %}
+    <section class="row" style="padding: 70px 2% 20px"></section>
+    <div class="section">
+        {{page}}
+    </div>
+    <div style="clear: both;"></div>
+    </section><!-- END row -->
+    {% else  %}
+    {% for i, section in enumerate(sections) %}
+    {% if i % 2 == 0 %}
+    {% if i == 0 %}
+    <section class="row" style="padding: 70px 2% 20px" id="{{ section.meta.id }}">
+        {% else  %}
+        <section class="row" id="{{ section.meta.id }}"></section>
+        {% endif %}
+        {% else  %}
+        <section class="row dark" id="{{ section.meta.id }}">
+            {% endif %}
+            <div class="section">
+                {{ section }}
+            </div>
+            <div style="clear: both;"></div>
+    </section><!-- END row -->
+    {% endfor %}
+    {% endif %}
+</div><!-- END sections -->
+
 {% endblock %}

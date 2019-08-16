@@ -1,4 +1,5 @@
 <!doctype html>
+
 <head>
   <meta charset="utf-8">
   <title>{% block page_title %}ECG Mobile{% endblock %}</title>
@@ -6,25 +7,53 @@
   {% block css %}{% endblock %}
 
 </head>
+
 <body>
 
-<nav class="nav-menu">
-    <ul>
-        {% for page in pages %}
-        <li><a href="{{ url_for('page', path=page.path) }}">
-            {{ page.meta.title }}
-        </a>
-        {% endfor %}
-    </ul>
-</nav>
+  <header class="stiky-header">
+    <div class="row">
+      <a class="logo" href="#"><img src="{{ url_for('static', filename='images/logo.png') }}" height="50px" /></a>
+      <div class="content">
+        <div class="mobile-toggle"><span></span><span></span><span></span></div>
+        <nav>
+          <ul>
+            {% for page in pages %}
+            <li><a href="{{ url_for('page', path=page.path) }}">
+                {{ page.meta.title }}
+              </a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+    </div> <!-- END row -->
+    <div class="secondary">
+        <div class="row">
+          <div class="content">
+            <nav>
+              <ul>
+                {% for section in sections %}
+                <li><a href="#{{ section.meta.id }}">
+                    {{ section.meta.title }}
+                  </a></li>
+                {% endfor %}
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+  </header>
+  
 
-<div class="{% block content_class %}container{% endblock content_class %}">
+  <div class="{% block content_class %}container{% endblock content_class %}">
+    <div role="main">
+      {% block content %}{% endblock %}
+    </div>
 
-  <div class="content" role="main">
-    {% block content %}{% endblock %}
-  </div>
+  </div><!-- end container -->
 
-</div><!-- end container -->
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 </body>
+
 </html>
