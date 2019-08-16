@@ -24,3 +24,4 @@ def page(path):
     page = pages.get_or_404(path)
     page_sections = sections(page)
     return render_template('page.html', page=page, pages=menu_pages(), sections=page_sections, enumerate=enumerate, len=len)
+    
