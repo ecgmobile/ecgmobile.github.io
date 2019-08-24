@@ -9,11 +9,14 @@
 body {
   color: black;
   background: white;
-  font-family: "Oswald", serif;
-  font-weight: 300;
   -webkit-font-smoothing: antialiased;
   padding: 0;
   margin: 0;
+
+  font-size:100%; 
+  line-height:1.5;
+  font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
+  text-align: left;
 }
 
 a {
@@ -29,8 +32,6 @@ h1 {
 
 p {
   margin-bottom: 20px;
-  font-size: 20px;
-  line-height: 2;
 }
 
 /*---------------------------------*/
@@ -87,17 +88,6 @@ p {
   transform: rotate(-90deg);
 }
 
-.stiky-header .secondary {
-  display: none;
-  top: 70px;
-}
-
-@media screen and (min-width: 766px) {
-  .stiky-header .secondary {
-    display: block;
-  }
-}
-
 .logo {
   float: left;
   display: block;
@@ -110,16 +100,16 @@ p {
 
 nav ul {
   list-style-type: none;
+  padding-top: 10px;
   padding-left: 0;
   margin: 0;
-  text-align: center;
+  text-align: right;
 }
 @media only screen and (max-width: 766px) {
   nav ul {
     padding-top: 10px;
     margin-bottom: 22px;
     float: left;
-    text-align: center;
     width: 100%;
   }
 }
@@ -130,12 +120,6 @@ nav ul li {
   text-transform: uppercase;
   font-size: 14px;
   transition: background 1s, color 1s;
-}
-
-.secondary nav ul li {
-  padding-left: 5px;
-  padding-right: 5px;
-  font-size: 12px;
 }
 
 @media only screen and (max-width: 766px) {
@@ -164,7 +148,7 @@ nav ul a.active {
   font-size: 20px;
   position: absolute;
   right: 22px;
-  top: 0;
+  top: 15px;
   width: 30px;
   transition: all 200ms ease-in;
 }
@@ -210,7 +194,7 @@ nav ul a.active {
 }
 
 .section {
-  max-width: 940px;
+  max-width: 900px;
   width: 100%;  
   margin: 0 auto;
   padding: 20px 2% 20px;
@@ -232,4 +216,71 @@ nav ul a.active {
   content: "";
   clear: both;
   display: table;
+}
+
+.navbar {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 999;
+  background: none;
+  overflow: hidden;
+  transition: all 0.3s;
+  border-bottom: 1px solid silver;
+  background-color: rgba(255, 255, 255, 0.93);
+  opacity: 1;
+  border-top: 1px solid silver;
+  font-size: 25px;
+  color: #8f8f8f;
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    display: none;
+  }
+}
+
+.navbar  ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  text-align: center;
+}
+@media only screen and (max-width: 766px) {
+  .navbar  ul {
+    padding-top: 10px;
+    margin-bottom: 22px;
+    float: left;
+    width: 100%;
+  }
+}
+.navbar  ul li {
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-transform: uppercase;
+  font-size: 14px;
+  transition: background 1s, color 1s;
+}
+
+@media only screen and (max-width: 766px) {
+  .navbar  ul li {
+    padding: 15px;
+    width: 100%;
+    padding: 7px 0;
+    margin: 0;
+  }
+}
+.navbar  ul a {
+  color: black;
+  text-transform: uppercase;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  transition: all 500ms linear;
+}
+.navbar  ul a.active {
+  border-bottom: 1px solid gray;
+  transition: all 500ms 100ms linear;
 }

@@ -16,7 +16,7 @@ $('.stiky-header li a').click(function() {
 });
 
 // navigation scroll
-$('nav a').click(function(event) {
+$('.navbar a').click(function(event) {
     var id = $(this).attr("href");
     var offset = 0;
     var target = $(id).offset().top - offset;
@@ -29,7 +29,7 @@ $('nav a').click(function(event) {
 /* WORK IN PROGRESS
    NAVIGATION ACTIVE STATE IN SECTION AREA
 */
-var sections = $('section'), nav = $('nav'), nav_height = nav.outerHeight();
+var sections = $('section'), nav = $('.navbar'), nav_height = nav.outerHeight();
  
 $(window).on('scroll', function () {
   var cur_pos = $(this).scrollTop();

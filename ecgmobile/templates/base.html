@@ -2,53 +2,52 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="apple-itunes-app" content="app-id=1474445891">
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
   <title>{% block page_title %}ECG Mobile{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   {% block css %}{% endblock %}
-
 </head>
 
 <body>
 
   <header class="stiky-header">
     <div class="row">
-      <a class="logo" href="#"><img src="{{ url_for('static', filename='images/logo.png') }}" height="50px" /></a>
+      <a class="logo" href="{{ url_for('main_localized', lang=lang) }}">
+        <img src="{{ url_for('static', filename='images/logo_{}.png'.format(lang)) }}" height="50px" />
+      </a>
       <div class="content">
         <div class="mobile-toggle"><span></span><span></span><span></span></div>
         <nav>
           <ul>
             {% for page in pages %}
-            <li><a href="{{ url_for('page', path=page.path) }}">
+            <li><a href="{{ url_for('page', lang=lang, path=page.path[:-3]) }}">
                 {{ page.meta.title }}
               </a></li>
             {% endfor %}
+            <li>
+                <a href="{{ url_for('main_localized', lang='ru') }}">ru</a> &nbsp; | &nbsp; <a href="{{ url_for('main_localized', lang='en') }}">en</a>
+            </li>
           </ul>
         </nav>
       </div>
     </div> <!-- END row -->
-    <div class="secondary">
-        <div class="row">
-          <div class="content">
-            <nav>
-              <ul>
-                {% for section in sections %}
-                <li><a href="#{{ section.meta.id }}">
-                    {{ section.meta.title }}
-                  </a></li>
-                {% endfor %}
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
   </header>
   
+  <div class="navbar">
+      <ul>
+        {% for section in sections %}
+        <li><a href="#{{ section.meta.id }}">
+            {{ section.meta.title }}
+          </a></li>
+        {% endfor %}
+      </ul>
+  </div>
 
   <div class="{% block content_class %}container{% endblock content_class %}">
     <div role="main">
       {% block content %}{% endblock %}
     </div>
-
   </div><!-- end container -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
