@@ -20,10 +20,12 @@ $('.navbar a').click(function(event) {
     var id = $(this).attr("href");
     var offset = 0;
     var target = $(id).offset().top - offset;
-    $('html, body').animate({
-        scrollTop: target
-    }, 500);
-    event.preventDefault();
+    if(target) {
+        $('html, body').animate({
+            scrollTop: target
+        }, 500);
+        event.preventDefault();
+    }
 });
 
 /* WORK IN PROGRESS

@@ -52,6 +52,8 @@ def page():
     yield {'lang': 'en', 'path': 'main'}
     yield {'lang': 'ru', 'path': 'support'}
     yield {'lang': 'en', 'path': 'support'}
+    yield {'lang': 'ru', 'path': 'privacy-policy'}
+    yield {'lang': 'en', 'path': 'privacy-policy'}
 
 @freezer.register_generator
 def support():
