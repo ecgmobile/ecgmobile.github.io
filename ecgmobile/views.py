@@ -54,6 +54,8 @@ def page():
     yield {'lang': 'en', 'path': 'support'}
     yield {'lang': 'ru', 'path': 'privacy-policy'}
     yield {'lang': 'en', 'path': 'privacy-policy'}
+    yield {'lang': 'ru', 'path': 'ecg-mob-privacy-policy'}
+    yield {'lang': 'en', 'path': 'ecg-mob-privacy-policy'}
 
 @freezer.register_generator
 def support():
