@@ -3,7 +3,7 @@
 from flask import render_template, redirect, url_for
 from .app import app, pages, freezer
 
-DEFAULT_LANG='ru'
+DEFAULT_LANG='en'
 
 def menu_pages(lang):
     web_pages = [page for page in pages if page.meta['type'] == 'page' and not 'hidden' in page.meta and not 'root' in page.meta and 'lang' in page.meta and page.meta['lang'] == lang ]
